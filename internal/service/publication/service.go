@@ -4,16 +4,16 @@ import (
 	"context"
 	"errors"
 
+	publicationRepo "swc-api-back.com/internal/repository/publication"
+
 	"swc-api-back.com/internal/domain/model/publication"
-	publicationRepo "swc-api-back.com/internal/domain/repository"
-	publicationSrv "swc-api-back.com/internal/domain/service"
 )
 
 type service struct {
 	publicationRepository publicationRepo.Publication
 }
 
-func New(publicationRepository publicationRepo.Publication) (publicationSrv.Publication, error) {
+func New(publicationRepository publicationRepo.Publication) (Publication, error) {
 	if publicationRepository == nil {
 		return nil, errors.New("missing publication repository")
 	}
@@ -27,4 +27,8 @@ func (s service) GetByID(ctx context.Context, id publication.ID) (publication.Pu
 		return s.publicationRepository.GetByID(ctx, id)
 	}
 	return publication.Publication{}, errors.New("publication not found")
+}
+
+func (s service) Create(context.Context, publication.Publication) (publication.ID, error) {
+	panic("unimplemented")
 }

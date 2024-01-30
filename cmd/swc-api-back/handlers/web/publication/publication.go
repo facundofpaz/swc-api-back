@@ -8,7 +8,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"swc-api-back.com/internal/domain/model/publication"
-	publicationSrv "swc-api-back.com/internal/domain/service"
+	publicationSrv "swc-api-back.com/internal/service/publication"
 )
 
 type Handler struct {

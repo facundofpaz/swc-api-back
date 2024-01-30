@@ -4,13 +4,12 @@ import (
 	"context"
 
 	"swc-api-back.com/internal/domain/model/publication"
-	publicationRepo "swc-api-back.com/internal/domain/repository"
 )
 
 type repository struct {
 }
 
-func New() (publicationRepo.Publication, error) {
+func New() (Publication, error) {
 	return repository{}, nil
 
 }

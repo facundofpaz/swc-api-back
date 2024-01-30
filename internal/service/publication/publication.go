@@ -1,4 +1,4 @@
-package service
+package publication
 
 import (
 	"context"
@@ -8,4 +8,5 @@ import (
 
 type Publication interface {
 	GetByID(context.Context, publication.ID) (publication.Publication, error)
+	Create(context.Context, publication.Publication) (publication.ID, error)
 }
