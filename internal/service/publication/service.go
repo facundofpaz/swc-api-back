@@ -23,10 +23,7 @@ func New(publicationRepository publicationRepo.Publication) (Publication, error)
 }
 
 func (s service) GetByID(ctx context.Context, id publication.ID) (publication.Publication, error) {
-	if id == 45 {
-		return s.publicationRepository.GetByID(ctx, id)
-	}
-	return publication.Publication{}, errors.New("publication not found")
+	return s.publicationRepository.GetByID(ctx, id)
 }
 
 func (s service) Create(context.Context, publication.Publication) (publication.ID, error) {

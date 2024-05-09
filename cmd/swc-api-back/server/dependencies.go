@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"swc-api-back.com/cmd/swc-api-back/handlers/web/publication"
+	db "swc-api-back.com/internal/infraestructure/db"
 	publicationRepo "swc-api-back.com/internal/repository/publication"
 	publicationSrv "swc-api-back.com/internal/service/publication"
 )
@@ -30,7 +31,15 @@ func resolvePublicationService() publicationSrv.Publication {
 }
 
 func resolvePublicationRepository() publicationRepo.Publication {
-	r, err := publicationRepo.New()
+	r, err := publicationRepo.New(resolveDBClient())
+	if err != nil {
+		panicHandler(err)
+	}
+	return r
+}
+
+func resolveDBClient() db.Client {
+	r, err := db.New()
 	if err != nil {
 		panicHandler(err)
 	}
