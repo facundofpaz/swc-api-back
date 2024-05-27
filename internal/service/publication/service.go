@@ -26,6 +26,6 @@ func (s service) GetByID(ctx context.Context, id publication.ID) (publication.Pu
 	return s.publicationRepository.GetByID(ctx, id)
 }
 
-func (s service) Create(context.Context, publication.Publication) (publication.ID, error) {
-	panic("unimplemented")
+func (s service) Create(_ context.Context, p publication.Publication) (publication.ID, error) {
+	return publication.ID(1), nil
 }

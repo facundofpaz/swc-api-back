@@ -7,6 +7,9 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
+	errorweb "swc-api-back.com/cmd/swc-api-back/handlers/error"
+	webresponse "swc-api-back.com/cmd/swc-api-back/handlers/web-response"
+	"swc-api-back.com/cmd/swc-api-back/handlers/web/publication/dto"
 	"swc-api-back.com/internal/domain/model/publication"
 	publicationSrv "swc-api-back.com/internal/service/publication"
 )
@@ -44,4 +47,19 @@ func (h Handler) GetByID(w http.ResponseWriter, r *http.Request) {
 	data, _ := json.Marshal(p)
 	w.Header().Add("Content-Type", "application/json")
 	w.Write(data)
+}
+
+func (h Handler) Create(w http.ResponseWriter, r *http.Request) {
+	var publicationRequest dto.Publication
+	err := json.NewDecoder(r.Body).Decode(&publicationRequest)
+	if err != nil {
+		errorweb.NewWebError(errorweb.BadRequestErr{Message: "error on decode creation publication body"}, w)
+		return
+	}
+	publicationID, err := h.publicationService.Create(r.Context(), dto.ToDomain(publicationRequest))
+	if err != nil {
+		errorweb.NewWebError(err, w)
+		return
+	}
+	webresponse.NewWebResponse(dto.Publication{ID: publicationID}, w, http.StatusCreated)
 }

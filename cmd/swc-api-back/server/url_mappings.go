@@ -18,5 +18,7 @@ func newMapping() mapping {
 }
 
 func (m mapping) mapUrlsToHandlers(r *mux.Router) {
+	// Publication handler
 	r.HandleFunc("/swc-api/publication/{id}", m.publicationHandler.GetByID).Methods(http.MethodGet)
+	r.HandleFunc("/swc-api/publication", m.publicationHandler.Create).Methods(http.MethodPost)
 }
