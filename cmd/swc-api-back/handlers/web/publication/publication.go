@@ -4,13 +4,10 @@ import (
 	"encoding/json"
 	"errors"
 	"net/http"
-	"strconv"
 
-	"github.com/gorilla/mux"
 	errorweb "swc-api-back.com/cmd/swc-api-back/handlers/error"
 	webresponse "swc-api-back.com/cmd/swc-api-back/handlers/web-response"
 	"swc-api-back.com/cmd/swc-api-back/handlers/web/publication/dto"
-	"swc-api-back.com/internal/domain/model/publication"
 	publicationSrv "swc-api-back.com/internal/service/publication"
 )
 
@@ -27,6 +24,7 @@ func New(publicationService publicationSrv.Publication) (*Handler, error) {
 	}, nil
 }
 
+/*
 func (h Handler) GetByID(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	id := params["id"]
@@ -47,7 +45,7 @@ func (h Handler) GetByID(w http.ResponseWriter, r *http.Request) {
 	data, _ := json.Marshal(p)
 	w.Header().Add("Content-Type", "application/json")
 	w.Write(data)
-}
+}*/
 
 func (h Handler) Create(w http.ResponseWriter, r *http.Request) {
 	var publicationRequest dto.Publication
