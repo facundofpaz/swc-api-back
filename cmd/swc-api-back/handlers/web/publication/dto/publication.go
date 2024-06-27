@@ -5,16 +5,16 @@ import (
 )
 
 type Publication struct {
-	ID           publication.ID   `json:"id"`
-	Latitude     float32          `json:"latitude"`
-	Longitude    float32          `json:"longitud"`
-	StreetName   string           `json:"street_name"`
-	StreetNumber string           `json:"street_number"`
-	Comment      string           `json:"comment"`
-	OfficesCount int              `json:"offices_count"`
-	Name         string           `json:"name"`
-	WorkingHours map[int][]string `json:"working_hours"`
-	Tags         []string         `json:"tags"`
+	ID           publication.ID   `json:"id,omitempty"`
+	Latitude     float32          `json:"latitude,omitempty"`
+	Longitude    float32          `json:"longitud,omitempty"`
+	StreetName   string           `json:"street_name,omitempty"`
+	StreetNumber string           `json:"street_number,omitempty"`
+	Comment      string           `json:"comment,omitempty"`
+	OfficesCount int              `json:"offices_count,omitempty"`
+	Name         string           `json:"name,omitempty"`
+	WorkingHours map[int][]string `json:"working_hours,omitempty"`
+	Tags         []string         `json:"tags,omitempty"`
 }
 
 func ToDomain(p Publication) publication.Publication {
