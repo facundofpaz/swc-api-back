@@ -4,13 +4,18 @@ import (
 	"context"
 	"errors"
 
-	"swc-api-back.com/internal/domain/model/publication"
+	"swc-api-back.com/internal/domain/publication"
 	db "swc-api-back.com/internal/infraestructure/db"
 	"swc-api-back.com/internal/repository/publication/dto"
 )
 
 type repository struct {
 	dbClient db.Client
+}
+
+// Create implements Publication.
+func (r repository) Create(context.Context, publication.Publication) (publication.ID, error) {
+	panic("unimplemented")
 }
 
 func New(dbClient db.Client) (Publication, error) {

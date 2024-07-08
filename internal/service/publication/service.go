@@ -6,7 +6,7 @@ import (
 
 	publicationRepo "swc-api-back.com/internal/repository/publication"
 
-	"swc-api-back.com/internal/domain/model/publication"
+	"swc-api-back.com/internal/domain/publication"
 )
 
 type service struct {
@@ -26,6 +26,6 @@ func (s service) GetByID(ctx context.Context, id publication.ID) (publication.Pu
 	return s.publicationRepository.GetByID(ctx, id)
 }
 
-func (s service) Create(_ context.Context, p publication.Publication) (publication.ID, error) {
-	return publication.ID(1), nil
+func (s service) Create(ctx context.Context, p publication.Publication) (publication.ID, error) {
+	return s.publicationRepository.Create(ctx, p)
 }

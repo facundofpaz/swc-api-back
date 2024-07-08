@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"swc-api-back.com/cmd/swc-api-back/handlers/web/publication/dto"
-	"swc-api-back.com/internal/domain/model/publication"
+	"swc-api-back.com/internal/domain/publication"
 )
 
 func TestToDomain(t *testing.T) {

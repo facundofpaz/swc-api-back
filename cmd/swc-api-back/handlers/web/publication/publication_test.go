@@ -13,7 +13,7 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 	"swc-api-back.com/cmd/swc-api-back/handlers/web/publication"
-	publicationDomain "swc-api-back.com/internal/domain/model/publication"
+	publicationDomain "swc-api-back.com/internal/domain/publication"
 	"swc-api-back.com/internal/mocks"
 )
 

@@ -1,6 +1,6 @@
 package dto
 
-import "swc-api-back.com/internal/domain/model/publication"
+import "swc-api-back.com/internal/domain/publication"
 
 type PublicationDB struct {
 	ID uint64 `db:"id"`

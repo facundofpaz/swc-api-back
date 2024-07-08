@@ -1,7 +1,7 @@
 package dto
 
 import (
-	"swc-api-back.com/internal/domain/model/publication"
+	"swc-api-back.com/internal/domain/publication"
 )
 
 type Publication struct {

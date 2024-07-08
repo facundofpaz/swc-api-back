@@ -3,7 +3,7 @@ package publication
 import (
 	"context"
 
-	"swc-api-back.com/internal/domain/model/publication"
+	"swc-api-back.com/internal/domain/publication"
 )
 
 //go:generate mockery --name=Publication --structname=PublicationServiceMock --filename=publication_service.go --output=../../mocks
